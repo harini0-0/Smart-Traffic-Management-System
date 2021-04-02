@@ -1,0 +1,16 @@
+<html>
+<head></head>
+<body>
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		{{ form.yourLocation.label() }}
+		{{ form.yourLocation() }}
+		{{ form.submit() }}
+	</form>
+	<ul>
+		<li>{{ top }}</li>
+		<li>{{ bottom }}</li>
+		<li>{{ left }}</li>
+	</ul>
+</body>
+</html>

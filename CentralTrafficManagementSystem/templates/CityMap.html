@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
 	<title>City Map</title>
+	<style>
+		
+	</style>
 </head>
 <body>
 	<table>
+        {% for i in range(6) %}
 		<tr>
-			{% for i in context %}
-			<td>{{i}}</td>
+			{% for j in range(6) %}
+			<td>{{intersections[i*6+j]}}</td>
 			{% endfor %}
 		</tr>
+		{% endfor %}
 	</table>
 </body>
 </html>
