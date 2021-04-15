@@ -3,19 +3,38 @@
 <head>
 	<title>City Map</title>
 	<style>
-		
+		ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
 	</style>
 </head>
 <body>
-	<!--<table>
-        {% for i in range(6) %}
-		<tr>
-			{% for j in range(6) %}
-			<td>{{intersections[i*6+j]}}</td>
-			{% endfor %}
-		{% endfor %}
-	</table>-->
-		</tr>
+	<ul>
+		<li><a href="/">Update</a></li>
+		<li><a href="/user" target = "_blank">Make Queries</a></li>
+	</ul>
+	
 
 	<canvas id="map" width="1100" height="500" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
@@ -23,9 +42,138 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 <script>
 var c = document.getElementById("map");
 var ctx = c.getContext("2d");
-var color_array = ["green","yellow","orange","red"];
-var x_co = [100,200,300,400,500,225,325,425,200,300,400];
-var y_co = [250,125,125,125,250,250,250,250,375,375,375];
+ctx.fillStyle = "white"
+ctx.fillRect(0, 0, map.width, map.height);
+var color_array = ["black","black","green","green","yellow","yellow","orange","orange","red"];
+//var x_co = [100,225,350,450,700,225,450,575,225,350,450];
+//var y_co = [275,150,150,150,275,275,275,275,400,400,400];
+var x_co = [100,225,325,425,550,250,350,450,225,325,425];
+var y_co = [175,50,50,50,175,175,175,175,300,300,300];
+
+ctx.font = "30px Arial"
+ctx.fillStyle = "red"
+ctx.fillRect(650, 50, 70 , 30);
+ctx.fillText("Congestion",730,75);
+ctx.fillStyle = "orange"
+ctx.fillRect(650, 100, 70 , 30);
+ctx.fillText("High Traffic",730,125);
+ctx.fillStyle = "yellow"
+ctx.fillRect(650, 150, 70 , 30);
+ctx.fillText("Moderate Traffic",730,175);
+ctx.fillStyle = "green"
+ctx.fillRect(650, 200, 70 , 30);
+ctx.fillText("Free",730,225);
+
+/*ctx.beginPath();
+ctx.moveTo(x_co[0], y_co[0]);
+ctx.lineTo(x_co[1], y_co[1]);
+ctx.lineWidth = 5;
+ctx.strokeStyle = "grey"
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[0], y_co[0]);
+ctx.lineTo(x_co[5], y_co[5]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[0], y_co[0]);
+ctx.lineTo(x_co[8], y_co[8]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[1], y_co[1]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[8], y_co[8]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[2], y_co[2]);
+ctx.lineTo(x_co[1], y_co[1]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[2], y_co[2]);
+ctx.lineTo(x_co[3], y_co[3]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[3], y_co[3]);
+ctx.lineTo(x_co[4], y_co[4]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[6], y_co[6]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[6], y_co[6]);
+ctx.lineTo(x_co[7], y_co[7]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[7], y_co[7]);
+ctx.lineTo(x_co[4], y_co[4]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[9], y_co[9]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[8], y_co[8]);
+ctx.lineTo(x_co[9], y_co[9]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[9], y_co[9]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[6], y_co[6]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[7], y_co[7]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[4], y_co[4]);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[3], y_co[3]);
+ctx.lineTo(x_co[6], y_co[6]);
+ctx.lineWidth = 5;
+ctx.stroke();*/
 
 ctx.beginPath();
 ctx.moveTo(x_co[0], y_co[0]);
@@ -125,8 +273,6 @@ ctx.strokeStyle = color_array[{{(intersections[10]+intersections[9])/2}}];
 ctx.lineWidth = 5;
 ctx.stroke();
 
-
-
 ctx.beginPath();
 ctx.moveTo(x_co[10], y_co[10]);
 ctx.lineTo(x_co[6], y_co[6]);
@@ -154,6 +300,7 @@ ctx.lineTo(x_co[6], y_co[6]);
 ctx.strokeStyle = color_array[{{(intersections[3]+intersections[6])/2}}];
 ctx.lineWidth = 5;
 ctx.stroke();
+
 
 
 
@@ -343,6 +490,16 @@ ctx.strokeStyle = color_array[{{(intersections[3]+intersections[6])/2}}];
 ctx.lineWidth = 5;
 ctx.stroke();
 */
+
+ctx.font = "20px Arial"
+
+for(var i = 0;i<x_co.length;i++)
+{
+  ctx.fillStyle = "white"
+  ctx.fillRect(x_co[i]-10, y_co[i]-30,20,20);
+  ctx.fillStyle = "Black"
+  ctx.fillText(i,x_co[i]-10,y_co[i]-10);
+}
 
 </script>
 </body>

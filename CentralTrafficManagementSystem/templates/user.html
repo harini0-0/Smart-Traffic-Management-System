@@ -1,11 +1,40 @@
 <html>
-<head></head>
-<body>
+<head>
+	<style>
+		.outerBox{
+
+        width: 500px;
+        border: 2px solid black;
+        padding: 25px;
+        margin: auto;
+        color: black;
+        text-align: center;
+        background: white;
+        border-radius: 25px;
+    }
+	</style>
+</head>
+<body bgcolor = "#000080">
+	<div class = "outerBox">
 	<form method="POST" action="">
-		{{ form.hidden_tag() }}
-		{{ form.yourLocation.label() }}
-		{{ form.yourLocation() }}
-		{{ form.submit() }}
+		<h3> Traffic Status Of Your Neighbourhood Junctions</h3>
+		{{ StatForm.hidden_tag() }}
+		Enter your {{ StatForm.yourLocation.label() }}
+		{{ StatForm.yourLocation() }}
+		{{ StatForm.submit() }}
 	</form>
+    </div><br>
+    <div class = "outerBox">
+	<form method="POST" action="">
+		<h3>Path with least Traffic </h3>
+		{{ RouteForm.hidden_tag() }}
+		<!--{{ RouteForm.userLocation.label() }}-->
+		Source      : 
+		{{ RouteForm.userLocation() }}<br><br>
+		{{ RouteForm.destination.label() }} : 
+		{{ RouteForm.destination() }}<br><br>
+		{{ RouteForm.submit() }}
+	</form>
+	</div>
 </body>
 </html>

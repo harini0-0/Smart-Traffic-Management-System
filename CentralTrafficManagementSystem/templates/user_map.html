@@ -1,0 +1,254 @@
+<html>
+<head>
+	<style>
+		.outerBox{
+
+        width: 500px;
+        border: 2px solid black;
+        padding: 25px;
+        margin: auto;
+        color: black;
+        text-align: center;
+        background: white;
+        border-radius: 25px;
+    }
+	</style>
+</head>
+<body bgcolor = "#000080">
+	<div class = "outerBox">
+	<form method="POST" action="">
+		<h3> Traffic Status Of Your Neighbourhood Junctions</h3>
+		{{ StatForm.hidden_tag() }}
+		Enter your {{ StatForm.yourLocation.label() }}
+		{{ StatForm.yourLocation() }}
+		{{ StatForm.submit() }}
+	</form>
+    </div><br>
+    <div class = "outerBox">
+	<form method="POST" action="">
+		<h3>Path with least Traffic </h3>
+		{{ RouteForm.hidden_tag() }}
+		<!--{{ RouteForm.userLocation.label() }}-->
+		Source      : 
+		{{ RouteForm.userLocation() }}<br><br>
+		{{ RouteForm.destination.label() }} : 
+		{{ RouteForm.destination() }}<br><br>
+		{{ RouteForm.submit() }}
+	</form>
+	</div>
+
+	<canvas bgcolor = "white" id="map" width="1100" height="500" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("map");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "white"
+ctx.fillRect(0, 0, map.width, map.height);
+var color_array = ["grey","grey","green"];
+//var x_co = [100,225,350,450,700,225,450,575,225,350,450];
+//var y_co = [275,150,150,150,275,275,275,275,400,400,400];
+var x_co = [100,225,325,425,550,250,350,450,225,325,425];
+var y_co = [175,50,50,50,175,175,175,175,300,300,300];
+
+ctx.beginPath();
+ctx.moveTo(x_co[0], y_co[0]);
+ctx.lineTo(x_co[1], y_co[1]);
+ctx.strokeStyle = color_array[{{intersections[1]+intersections[0]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[0], y_co[0]);
+ctx.lineTo(x_co[5], y_co[5]);
+ctx.strokeStyle = color_array[{{intersections[5]+intersections[0]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+
+ctx.beginPath();
+ctx.moveTo(x_co[0], y_co[0]);
+ctx.lineTo(x_co[8], y_co[8]);
+ctx.strokeStyle = color_array[{{intersections[8]+intersections[0]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[1], y_co[1]);
+ctx.strokeStyle = color_array[{{intersections[1]+intersections[5]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[8], y_co[8]);
+ctx.strokeStyle = color_array[{{intersections[5]+intersections[8]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[2], y_co[2]);
+ctx.lineTo(x_co[1], y_co[1]);
+ctx.strokeStyle = color_array[{{intersections[1]+intersections[2]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[2], y_co[2]);
+ctx.lineTo(x_co[3], y_co[3]);
+ctx.strokeStyle = color_array[{{intersections[2]+intersections[3]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[3], y_co[3]);
+ctx.lineTo(x_co[4], y_co[4]);
+ctx.strokeStyle = color_array[{{intersections[3]+intersections[4]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[6], y_co[6]);
+ctx.strokeStyle = color_array[{{intersections[5]+intersections[6]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[6], y_co[6]);
+ctx.lineTo(x_co[7], y_co[7]);
+ctx.strokeStyle = color_array[{{intersections[7]+intersections[6]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[7], y_co[7]);
+ctx.lineTo(x_co[4], y_co[4]);
+ctx.strokeStyle = color_array[{{intersections[7]+intersections[4]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[5], y_co[5]);
+ctx.lineTo(x_co[9], y_co[9]);
+ctx.strokeStyle = color_array[{{intersections[5]+intersections[9]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[8], y_co[8]);
+ctx.lineTo(x_co[9], y_co[9]);
+ctx.strokeStyle = color_array[{{intersections[8]+intersections[9]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[9], y_co[9]);
+ctx.strokeStyle = color_array[{{intersections[10]+intersections[9]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[6], y_co[6]);
+ctx.strokeStyle = color_array[{{intersections[10]+intersections[6]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[7], y_co[7]);
+ctx.strokeStyle = color_array[{{intersections[7]+intersections[10]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[10], y_co[10]);
+ctx.lineTo(x_co[4], y_co[4]);
+ctx.strokeStyle = color_array[{{intersections[10]+intersections[4]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x_co[3], y_co[3]);
+ctx.lineTo(x_co[6], y_co[6]);
+ctx.strokeStyle = color_array[{{intersections[6]+intersections[3]}}]
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(x_co[0], y_co[0], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[0]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[1], y_co[1], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[1]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[2], y_co[2], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[2]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[3], y_co[3], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[3]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[4], y_co[4], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[4]}}];
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(x_co[5], y_co[5], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[5]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[6], y_co[6], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[6]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[7], y_co[7], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[7]}}];
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(x_co[8], y_co[8], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[8]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[9], y_co[9], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[9]}}];
+ctx.fill();
+ctx.beginPath();
+ctx.arc(x_co[10], y_co[10], 10, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = color_array[{{2*intersections[10]}}];
+ctx.fill();
+
+ctx.font = "20px Arial"
+
+for(var i = 0;i<x_co.length;i++)
+{
+  ctx.fillStyle = "white"
+  ctx.fillRect(x_co[i]-10, y_co[i]-30,20,20);
+  ctx.fillStyle = "Black"
+  ctx.fillText(i,x_co[i]-10,y_co[i]-10);
+}
+
+</script>
+
+</body>
+</html>

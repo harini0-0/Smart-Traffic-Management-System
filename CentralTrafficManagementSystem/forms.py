@@ -4,4 +4,9 @@ from wtforms.validators import DataRequired,Length
 
 class NeighbourhoodStat(FlaskForm):
 	yourLocation = StringField('Location', validators = [DataRequired()])
-	submit = SubmitField('Get Stat')
+	submit = SubmitField('Get Status')
+
+class GetRoute(FlaskForm):
+	userLocation = StringField('Location', validators = [DataRequired()])
+	destination = StringField('Destination', validators = [DataRequired()])
+	submit = SubmitField('Get Route')
