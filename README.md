@@ -8,5 +8,6 @@ The project has been divided into 2 module:<br>
 a) Central management system which focuses on regulating congestions in city by navigating the user through the least congested path.<br>
 b) Smart traffic light system which focuses on dynamically allocating the traffic signal time to each lane based on the number of vehicles in their respective lane.<br><br>
 
-Technologies used: Flask, Python, Pygame,HTML, CSS, Javascript
+Technologies used: Flask, Python, Pygame,HTML, CSS, Javascript<br> <br>
+![Pygame Simulation](https://github.com/harini0-0/OS-project/blob/main/fig17.jpg?raw=true)
 
