@@ -6,4 +6,6 @@ There are various drawbacks in the existing traffic management systems. The curr
 Hence we aim to develop a Smart Traffic Management System that overcomes the above mentioned drawbacks, therefore reducing fuel consumption and pollution. <br><br>
 The project has been divided into 2 module:<br>
 a) Central management system which focuses on regulating congestions in city by navigating the user through the least congested path.<br>
-b) Smart traffic light system which focuses on dynamically allocating the traffic signal time to each lane based on the number of vehicles in their respective lane.<br>
+b) Smart traffic light system which focuses on dynamically allocating the traffic signal time to each lane based on the number of vehicles in their respective lane.<br><br>
+
+Technology used: Flask, Python, Pygame,HTML, CSS, Javascript
