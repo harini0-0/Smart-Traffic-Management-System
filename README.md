@@ -1,4 +1,4 @@
-# OS-project
+# Smart Traffic Management System
 
 The congestion of urban traffic is one of the critical issues of the present day. 
 It has become a necessity to design and develop an efficient traffic management system as traffic congestion is causing various problems in many cities across the world. 
